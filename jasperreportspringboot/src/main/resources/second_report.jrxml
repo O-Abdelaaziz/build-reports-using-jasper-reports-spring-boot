@@ -47,7 +47,18 @@
 		<band height="45" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="20" width="160" height="30" uuid="ef59401e-6476-4c32-9303-bb0098fde8bb"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Page " +$V{PAGE_NUMBER} +"of "]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="162" y="20" width="100" height="30" uuid="73dd3224-825d-473f-844e-34945d2dcab8"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
 	</pageFooter>
 	<summary>
 		<band height="42" splitType="Stretch"/>
