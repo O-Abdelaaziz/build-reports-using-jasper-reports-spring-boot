@@ -120,7 +120,7 @@
 				<reportElement x="0" y="0" width="111" height="20" uuid="fb18fc03-cc1b-4977-92cc-4e0ecfbcd69e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5177a40c-acba-4e10-943b-97b106393b8c"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
@@ -129,7 +129,7 @@
 				<reportElement x="111" y="0" width="111" height="20" uuid="feafc3df-d8d2-4631-b440-597c3a0172b9">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dd3cdafd-4191-4b15-8b86-ea32f51a020c"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
@@ -138,7 +138,7 @@
 				<reportElement x="222" y="0" width="111" height="20" uuid="4284bc1c-11d7-4215-909c-ffbde29907f7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e8e99826-88bf-4939-ae59-cd71ebdd4b01"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
@@ -147,7 +147,7 @@
 				<reportElement x="333" y="0" width="111" height="20" uuid="3879c3ff-c100-4cee-b4ba-e5df98c0fe27">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1699f81a-dda4-4e0b-928d-26839f3ca11f"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{street}]]></textFieldExpression>
@@ -156,7 +156,7 @@
 				<reportElement x="444" y="0" width="111" height="20" uuid="339510c5-0cff-4c34-813a-591740c0f782">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1a1fe9e2-1c6a-4205-89b1-28d55e40c6f8"/>
 				</reportElement>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
