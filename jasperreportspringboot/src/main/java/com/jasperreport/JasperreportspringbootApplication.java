@@ -1,10 +1,12 @@
 package com.jasperreport;
 
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.base.JRBaseTextField;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +35,9 @@ public class JasperreportspringbootApplication {
             JRBeanCollectionDataSource collectionDataSource=new JRBeanCollectionDataSource(stringList);
 
             JasperReport jasperReport= JasperCompileManager.compileReport(file.getPath());
+
+            JRBaseTextField textField=(JRBaseTextField) jasperReport.getTitle().getElementByKey("name");
+            textField.setForecolor(Color.RED);
 
             JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,collectionDataSource);
 
