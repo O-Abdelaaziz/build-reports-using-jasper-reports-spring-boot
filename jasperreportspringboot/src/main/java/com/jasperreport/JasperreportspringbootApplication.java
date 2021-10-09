@@ -1,5 +1,6 @@
 package com.jasperreport;
 
+import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -28,8 +29,17 @@ public class JasperreportspringbootApplication {
             List<Employee> stringList=new ArrayList<>();
             stringList.add(employee1);
             stringList.add(employee2);
-            
+
             JRBeanCollectionDataSource collectionDataSource=new JRBeanCollectionDataSource(stringList);
+
+            JasperReport jasperReport= JasperCompileManager.compileReport(file.getPath());
+
+            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,collectionDataSource);
+
+            String exportFilePath="E:\\first_report.pdf";
+            JasperExportManager.exportReportToPdfFile(jasperPrint,exportFilePath);
+
+            System.out.println("report printed");
         }catch (Exception ex){
             System.out.println(ex);
         }
