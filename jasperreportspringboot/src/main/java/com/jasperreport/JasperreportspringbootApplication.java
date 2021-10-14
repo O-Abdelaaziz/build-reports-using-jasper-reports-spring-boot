@@ -74,6 +74,8 @@ public class JasperreportspringbootApplication {
             parameters.put("employeeName","Abdelaaziz");
             parameters.put("reportName","Employee of The Year");
             parameters.put("tableData",collectionDataSource);
+            parameters.put("subReport",getSubReport());
+            parameters.put("subDataSource",getSubDataSource());
 
 
             JasperReport jasperReport= JasperCompileManager.compileReport(file.getPath());
@@ -100,4 +102,23 @@ public class JasperreportspringbootApplication {
         }
     }
 
+    public static JasperReport getSubReport() throws JRException {
+        ClassLoader classLoader = JasperreportspringbootApplication.class.getClassLoader();
+        File file = new File(classLoader.getResource("first_report.jrxml").getFile());
+        JasperReport jasperReport= JasperCompileManager.compileReport(file.getPath());
+        return jasperReport;
+    }
+
+    public static  JRBeanCollectionDataSource getSubDataSource(){
+        Employee employee1=new Employee(1L,"mahi","amine","street1","city1","Java",15L);
+        Employee employee2=new Employee(2L,"loumi","samir","street2","city2","Angular",18L);
+
+        List<Employee> stringList = new ArrayList<>();
+        stringList.add(employee1);
+        stringList.add(employee2);
+
+        JRBeanCollectionDataSource collectionDataSource = new JRBeanCollectionDataSource(stringList);
+
+        return collectionDataSource;
+    }
 }
