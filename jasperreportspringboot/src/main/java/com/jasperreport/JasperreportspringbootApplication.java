@@ -76,6 +76,7 @@ public class JasperreportspringbootApplication {
             parameters.put("tableData",collectionDataSource);
             parameters.put("subReport",getSubReport());
             parameters.put("subDataSource",getSubDataSource());
+            parameters.put("studentName",getSupParameters());
 
 
             JasperReport jasperReport= JasperCompileManager.compileReport(file.getPath());
@@ -120,5 +121,11 @@ public class JasperreportspringbootApplication {
         JRBeanCollectionDataSource collectionDataSource = new JRBeanCollectionDataSource(stringList);
 
         return collectionDataSource;
+    }
+
+    public  static  Map<String,Object>getSupParameters(){
+        Map<String,Object> parameters = new HashMap<>();
+        parameters.put("studentName","Abdelaaziz");
+        return parameters;
     }
 }
