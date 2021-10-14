@@ -53,12 +53,13 @@ public class JasperreportspringbootApplication {
             Employee employee1=new Employee(1L,"mahi","amine","street1","city1","Java",15L);
             Employee employee2=new Employee(2L,"loumi","samir","street2","city2","Angular",18L);
             Employee employee3=new Employee(3L,"louki","ahmed","street3","city3","Laravel",14L);
-            Employee employee4=new Employee(3L,"masi","islam","street4","city4","ReactJs",14L);
+            Employee employee4=new Employee(3L,"masi","islam","street4","city4","ReactJs",16L);
 
             List<Employee> stringList=new ArrayList<>();
             stringList.add(employee1);
             stringList.add(employee2);
             stringList.add(employee3);
+            stringList.add(employee4);
 
             JRBeanCollectionDataSource collectionDataSource=new JRBeanCollectionDataSource(stringList);
             JRBeanCollectionDataSource chartDataSource=new JRBeanCollectionDataSource(stringList);
