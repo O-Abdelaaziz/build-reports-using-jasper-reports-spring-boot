@@ -62,6 +62,7 @@ public class JasperreportspringbootApplication {
             stringList.add(employee4);
 
             JRBeanCollectionDataSource collectionDataSource=new JRBeanCollectionDataSource(stringList);
+
             JRBeanCollectionDataSource chartDataSource=new JRBeanCollectionDataSource(stringList);
 
             Map<String,Object> parameters = new HashMap<>();
