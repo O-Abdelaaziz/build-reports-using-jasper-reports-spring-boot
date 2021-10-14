@@ -3,9 +3,9 @@ package com.jasperreport;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.base.JRBaseTextField;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
-import net.sf.jasperreports.export.SimpleExporterInput;
-import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.awt.*;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -67,18 +66,13 @@ public class EmployeeController {
 
         JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,chartDataSource);
 
-        String exportFilePath="E:\\first_report.pdf";
-        String exportFileHtml="E:\\first_report.html";
-        String exportFileExcel="E:\\first_report.xlsx";
-        JasperExportManager.exportReportToPdfFile(jasperPrint,exportFilePath);
-        JasperExportManager.exportReportToHtmlFile(jasperPrint,exportFileHtml);
+        byte[] byteArray= JasperExportManager.exportReportToPdf(jasperPrint);
 
-        JRXlsxExporter exporter=new JRXlsxExporter();
-        exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
-        exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(new FileOutputStream(exportFileExcel)));
-        exporter.exportReport();
+        HttpHeaders httpHeaders=new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_PDF);
+        httpHeaders.setContentDispositionFormData("fileName","student.pdf");
 
         System.out.println("report printed");
-        return ResponseEntity.ok().body();
+        return new ResponseEntity<byte[]>  (byteArray,httpHeaders, HttpStatus.OK);
     }
 }
