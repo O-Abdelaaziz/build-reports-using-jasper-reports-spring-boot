@@ -13,13 +13,15 @@ public class Employee {
     private String lastName;
     private String street;
     private String city;
+    private Long mark;
 
-    public Employee(Long id, String firstName, String lastName, String street, String city) {
+    public Employee(Long id, String firstName, String lastName, String street, String city,Long mark) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.street = street;
         this.city = city;
+        this.mark=mark;
     }
 
     public Long getId() {
@@ -60,5 +62,13 @@ public class Employee {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public Long getMark() {
+        return mark;
+    }
+
+    public void setMark(Long mark) {
+        this.mark = mark;
     }
 }

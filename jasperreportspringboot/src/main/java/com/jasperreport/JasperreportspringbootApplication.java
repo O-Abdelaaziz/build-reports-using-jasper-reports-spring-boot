@@ -50,9 +50,9 @@ public class JasperreportspringbootApplication {
             ClassLoader classLoader = JasperreportspringbootApplication.class.getClassLoader();
             File file = new File(classLoader.getResource("second_report.jrxml").getFile());
 
-            Employee employee1=new Employee(1L,"mahi","amine","street1","city1");
-            Employee employee2=new Employee(2L,"loumi","samir","street2","city2");
-            Employee employee3=new Employee(3L,"louki","ahmed","street3","city3");
+            Employee employee1=new Employee(1L,"mahi","amine","street1","city1",15L);
+            Employee employee2=new Employee(2L,"loumi","samir","street2","city2",18L);
+            Employee employee3=new Employee(3L,"louki","ahmed","street3","city3",14L);
 
             List<Employee> stringList=new ArrayList<>();
             stringList.add(employee1);

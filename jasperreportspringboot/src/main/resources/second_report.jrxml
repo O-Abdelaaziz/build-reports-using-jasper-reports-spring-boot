@@ -36,7 +36,11 @@
 		<field name="firstName" class="java.lang.String"/>
 		<field name="lastName" class="java.lang.String"/>
 		<field name="city" class="java.lang.String"/>
+		<field name="mark" class="java.lang.Long"/>
 		<sortField name="firstName" order="Descending"/>
+		<variable name="totalmarks" class="java.lang.Long" calculation="Sum">
+			<variableExpression><![CDATA[$F{mark}]]></variableExpression>
+		</variable>
 	</subDataset>
 	<parameter name="employeeName" class="java.lang.String"/>
 	<parameter name="reportName" class="java.lang.String"/>
@@ -108,6 +112,7 @@
 					<jr:column width="200" uuid="4c9a3118-a68c-4c0d-bb72-09a94fbd050c">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
 						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="200" height="30" uuid="b713edcf-6734-4224-802c-2b82d99daeb6"/>
@@ -115,6 +120,7 @@
 								<text><![CDATA[Employee Name]]></text>
 							</staticText>
 						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
 								<reportElement x="0" y="0" width="200" height="30" uuid="555992ed-dc81-449e-b07d-487e7233375a"/>
@@ -126,18 +132,52 @@
 					<jr:column width="100" uuid="1943ab0c-b039-422c-8c8e-b99bd28743f6">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
 						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="5e731729-515d-4427-bb16-f16d988164cc"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Total Marks]]></text>
+							</staticText>
+						</jr:tableFooter>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="100" height="30" uuid="e709f57b-84b0-4659-8996-e2e71c958d36"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Marks]]></text>
+								<text><![CDATA[City]]></text>
 							</staticText>
 						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
 								<reportElement x="0" y="0" width="100" height="30" uuid="6586f39e-c511-4424-baa1-466cd694d1ec"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="d4560429-e27d-4d7b-958c-824f819598a2">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
+						<jr:tableFooter style="Table_TH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="30" uuid="fdae8043-c1e0-4731-ab94-e6b6470fa92e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$V{totalmarks}]]></textFieldExpression>
+							</textField>
+						</jr:tableFooter>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="a52f5a55-0d99-4aa7-8038-fc39271942c7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[Marks]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="30" uuid="8df22725-ef87-4bb7-9658-59b8e901ebe2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{mark}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
