@@ -9,9 +9,11 @@ import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.util.ResourceUtils;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -103,10 +105,12 @@ public class JasperreportspringbootApplication {
         }
     }
 
-    public static JasperReport getSubReport() throws JRException {
+    public static JasperReport getSubReport() throws JRException, FileNotFoundException {
         ClassLoader classLoader = JasperreportspringbootApplication.class.getClassLoader();
-        File file = new File(classLoader.getResource("first_report.jrxml").getFile());
-        JasperReport jasperReport= JasperCompileManager.compileReport(file.getPath());
+//        File file = new File(classLoader.getResource("first_report.jrxml").getFile());
+        String file= ResourceUtils.getFile("classpath:first_report.jrxml").getAbsolutePath();
+
+        JasperReport jasperReport= JasperCompileManager.compileReport(file);
         return jasperReport;
     }
 
