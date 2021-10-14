@@ -13,14 +13,17 @@ public class Employee {
     private String lastName;
     private String street;
     private String city;
+    private String subjectName;
     private Long mark;
 
-    public Employee(Long id, String firstName, String lastName, String street, String city,Long mark) {
+
+    public Employee(Long id, String firstName, String lastName, String street, String city,String subjectName,Long mark) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.street = street;
         this.city = city;
+        this.subjectName=subjectName;
         this.mark=mark;
     }
 
@@ -62,6 +65,14 @@ public class Employee {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
     }
 
     public Long getMark() {

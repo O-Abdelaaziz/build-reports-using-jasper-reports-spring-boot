@@ -50,9 +50,10 @@ public class JasperreportspringbootApplication {
             ClassLoader classLoader = JasperreportspringbootApplication.class.getClassLoader();
             File file = new File(classLoader.getResource("second_report.jrxml").getFile());
 
-            Employee employee1=new Employee(1L,"mahi","amine","street1","city1",15L);
-            Employee employee2=new Employee(2L,"loumi","samir","street2","city2",18L);
-            Employee employee3=new Employee(3L,"louki","ahmed","street3","city3",14L);
+            Employee employee1=new Employee(1L,"mahi","amine","street1","city1","Java",15L);
+            Employee employee2=new Employee(2L,"loumi","samir","street2","city2","Angular",18L);
+            Employee employee3=new Employee(3L,"louki","ahmed","street3","city3","Laravel",14L);
+            Employee employee4=new Employee(3L,"masi","islam","street4","city4","ReactJs",14L);
 
             List<Employee> stringList=new ArrayList<>();
             stringList.add(employee1);
@@ -60,6 +61,7 @@ public class JasperreportspringbootApplication {
             stringList.add(employee3);
 
             JRBeanCollectionDataSource collectionDataSource=new JRBeanCollectionDataSource(stringList);
+            JRBeanCollectionDataSource chartDataSource=new JRBeanCollectionDataSource(stringList);
 
             Map<String,Object> parameters = new HashMap<>();
             parameters.put("employeeName","Abdelaaziz");
@@ -72,7 +74,7 @@ public class JasperreportspringbootApplication {
             JRBaseTextField textField=(JRBaseTextField) jasperReport.getTitle().getElementByKey("emp_of_year");
             textField.setForecolor(Color.green);
 
-            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,new JREmptyDataSource());
+            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,chartDataSource);
 
             String exportFilePath="E:\\first_report.pdf";
             JasperExportManager.exportReportToPdfFile(jasperPrint,exportFilePath);
