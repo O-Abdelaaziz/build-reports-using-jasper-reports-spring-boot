@@ -3,11 +3,16 @@ package com.jasperreport;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.base.JRBaseTextField;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
+import net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -80,8 +85,14 @@ public class JasperreportspringbootApplication {
 
             String exportFilePath="E:\\first_report.pdf";
             String exportFileHtml="E:\\first_report.html";
+            String exportFileExcel="E:\\first_report.xlsx";
             JasperExportManager.exportReportToPdfFile(jasperPrint,exportFilePath);
             JasperExportManager.exportReportToHtmlFile(jasperPrint,exportFileHtml);
+
+            JRXlsxExporter exporter=new JRXlsxExporter();
+            exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
+            exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(new FileOutputStream(exportFileExcel)));
+            exporter.exportReport();
 
             System.out.println("report printed");
         }catch (Exception ex){
