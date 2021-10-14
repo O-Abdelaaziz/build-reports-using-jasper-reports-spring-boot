@@ -206,11 +206,11 @@
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="221" splitType="Stretch">
+		<band height="212" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<pieChart>
 				<chart evaluationTime="Report">
-					<reportElement x="0" y="10" width="200" height="200" uuid="2546d988-27b4-4df3-a86e-074ff14d16ec"/>
+					<reportElement x="0" y="10" width="200" height="200" uuid="4bc1649e-41f1-4cc9-86a0-fdae066bafd0"/>
 					<chartTitle/>
 					<chartSubtitle/>
 					<chartLegend/>
@@ -226,6 +226,33 @@
 					<itemLabel/>
 				</piePlot>
 			</pieChart>
+			<bar3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="360" y="10" width="200" height="200" uuid="6f31a4fa-e69e-4ea1-a32d-df730ee415f9"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{subjectName}]]></seriesExpression>
+						<categoryExpression><![CDATA[0]]></categoryExpression>
+						<valueExpression><![CDATA[$F{mark}]]></valueExpression>
+						<labelExpression><![CDATA[""+$F{mark}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
 		</band>
 	</summary>
 </jasperReport>
