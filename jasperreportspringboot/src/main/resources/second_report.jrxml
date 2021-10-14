@@ -33,6 +33,9 @@
 		<queryString>
 			<![CDATA[]]>
 		</queryString>
+		<field name="firstName" class="java.lang.String"/>
+		<field name="lastName" class="java.lang.Long"/>
+		<field name="city" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="employeeName" class="java.lang.String"/>
 	<parameter name="reportName" class="java.lang.String"/>
@@ -68,7 +71,7 @@
 					<text><![CDATA[Employee Name]]></text>
 				</staticText>
 				<textField>
-					<reportElement x="210" y="50" width="335" height="30" uuid="6e1ad245-5400-448a-b0ff-d1b1b5062c1f"/>
+					<reportElement key="emp_of_year" x="210" y="50" width="335" height="30" uuid="6e1ad245-5400-448a-b0ff-d1b1b5062c1f"/>
 					<textElement textAlignment="Center" verticalAlignment="Middle"/>
 					<textFieldExpression><![CDATA[$P{employeeName}]]></textFieldExpression>
 				</textField>
@@ -108,7 +111,7 @@
 							<staticText>
 								<reportElement x="0" y="0" width="100" height="30" uuid="b713edcf-6734-4224-802c-2b82d99daeb6"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<text><![CDATA[Employee Name]]></text>
+								<text><![CDATA[Subject Name]]></text>
 							</staticText>
 						</jr:columnHeader>
 						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
@@ -116,7 +119,7 @@
 							<textField>
 								<reportElement x="0" y="0" width="100" height="30" uuid="555992ed-dc81-449e-b07d-487e7233375a"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{firstName}  +" " + $F{lastName}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -136,7 +139,7 @@
 							<textField>
 								<reportElement x="0" y="0" width="100" height="30" uuid="6586f39e-c511-4424-baa1-466cd694d1ec"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA["Text Field"]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>

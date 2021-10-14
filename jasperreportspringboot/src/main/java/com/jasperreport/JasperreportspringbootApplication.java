@@ -20,24 +20,55 @@ public class JasperreportspringbootApplication {
         SpringApplication.run(JasperreportspringbootApplication.class, args);
 
         try{
-            ClassLoader classLoader = JasperreportspringbootApplication.class.getClassLoader();
-            File file = new File(classLoader.getResource("first_report.jrxml").getFile());
-            Map<String,Object> parameters = new HashMap<>();
-            parameters.put("studentName","Abdelaaziz");
+//            ClassLoader classLoader = JasperreportspringbootApplication.class.getClassLoader();
+//            File file = new File(classLoader.getResource("first_report.jrxml").getFile());
+//            Map<String,Object> parameters = new HashMap<>();
+//            parameters.put("studentName","Abdelaaziz");
+//
+//            Employee employee1=new Employee(1L, "employee1","emloyee1","street1","city1");
+//            Employee employee2=new Employee(2L, "employee2","emloyee2","street2","city2");
+//
+//            List<Employee> stringList=new ArrayList<>();
+//            stringList.add(employee1);
+//            stringList.add(employee2);
+//
+//            JRBeanCollectionDataSource collectionDataSource=new JRBeanCollectionDataSource(stringList);
+//
+//            JasperReport jasperReport= JasperCompileManager.compileReport(file.getPath());
+//
+//            JRBaseTextField textField=(JRBaseTextField) jasperReport.getTitle().getElementByKey("name");
+//            textField.setForecolor(Color.RED);
+//
+//            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,collectionDataSource);
+//
+//            String exportFilePath="E:\\first_report.pdf";
+//            JasperExportManager.exportReportToPdfFile(jasperPrint,exportFilePath);
+//
+//            System.out.println("report printed");
 
-            Employee employee1=new Employee(1L, "employee1","emloyee1","street1","city1");
-            Employee employee2=new Employee(2L, "employee2","emloyee2","street2","city2");
+
+            ClassLoader classLoader = JasperreportspringbootApplication.class.getClassLoader();
+            File file = new File(classLoader.getResource("second_report.jrxml").getFile());
+
+            Map<String,Object> parameters = new HashMap<>();
+            parameters.put("employeeName","Abdelaaziz");
+            parameters.put("reportName","Employee of The Year");
+
+            Employee employee1=new Employee(1L,"mahi","amine","street1","city1");
+            Employee employee2=new Employee(2L,"loumi","samir","street2","city2");
+            Employee employee3=new Employee(3L,"louki","ahmed","street3","city3");
 
             List<Employee> stringList=new ArrayList<>();
             stringList.add(employee1);
             stringList.add(employee2);
+            stringList.add(employee3);
 
             JRBeanCollectionDataSource collectionDataSource=new JRBeanCollectionDataSource(stringList);
 
             JasperReport jasperReport= JasperCompileManager.compileReport(file.getPath());
 
-            JRBaseTextField textField=(JRBaseTextField) jasperReport.getTitle().getElementByKey("name");
-            textField.setForecolor(Color.RED);
+            JRBaseTextField textField=(JRBaseTextField) jasperReport.getTitle().getElementByKey("emp_of_year");
+            textField.setForecolor(Color.green);
 
             JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,collectionDataSource);
 
