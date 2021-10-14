@@ -39,6 +39,7 @@
 	</subDataset>
 	<parameter name="employeeName" class="java.lang.String"/>
 	<parameter name="reportName" class="java.lang.String"/>
+	<parameter name="tableData" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -100,13 +101,12 @@
 					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="Dataset_Employee" uuid="fd62a23f-ffba-4906-bb6d-d1bc171a7422">
-						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					<datasetRun subDataset="Dataset_Employee" uuid="4613f05f-d409-4911-9cb0-b9208f794556">
+						<dataSourceExpression><![CDATA[$P{tableData}]]></dataSourceExpression>
 					</datasetRun>
 					<jr:column width="100" uuid="4c9a3118-a68c-4c0d-bb72-09a94fbd050c">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
 						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="100" height="30" uuid="b713edcf-6734-4224-802c-2b82d99daeb6"/>
@@ -114,19 +114,17 @@
 								<text><![CDATA[Subject Name]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
 								<reportElement x="0" y="0" width="100" height="30" uuid="555992ed-dc81-449e-b07d-487e7233375a"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
-								<textFieldExpression><![CDATA[$F{firstName}  +" " + $F{lastName}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
 					<jr:column width="100" uuid="1943ab0c-b039-422c-8c8e-b99bd28743f6">
 						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
 						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
-						<jr:tableFooter style="Table_TH" height="30" rowSpan="1"/>
 						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
 							<staticText>
 								<reportElement x="0" y="0" width="100" height="30" uuid="e709f57b-84b0-4659-8996-e2e71c958d36"/>
@@ -134,7 +132,6 @@
 								<text><![CDATA[Marks]]></text>
 							</staticText>
 						</jr:columnHeader>
-						<jr:columnFooter style="Table_CH" height="30" rowSpan="1"/>
 						<jr:detailCell style="Table_TD" height="30">
 							<textField>
 								<reportElement x="0" y="0" width="100" height="30" uuid="6586f39e-c511-4424-baa1-466cd694d1ec"/>

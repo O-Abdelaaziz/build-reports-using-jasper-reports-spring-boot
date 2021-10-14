@@ -50,10 +50,6 @@ public class JasperreportspringbootApplication {
             ClassLoader classLoader = JasperreportspringbootApplication.class.getClassLoader();
             File file = new File(classLoader.getResource("second_report.jrxml").getFile());
 
-            Map<String,Object> parameters = new HashMap<>();
-            parameters.put("employeeName","Abdelaaziz");
-            parameters.put("reportName","Employee of The Year");
-
             Employee employee1=new Employee(1L,"mahi","amine","street1","city1");
             Employee employee2=new Employee(2L,"loumi","samir","street2","city2");
             Employee employee3=new Employee(3L,"louki","ahmed","street3","city3");
@@ -65,12 +61,18 @@ public class JasperreportspringbootApplication {
 
             JRBeanCollectionDataSource collectionDataSource=new JRBeanCollectionDataSource(stringList);
 
+            Map<String,Object> parameters = new HashMap<>();
+            parameters.put("employeeName","Abdelaaziz");
+            parameters.put("reportName","Employee of The Year");
+            parameters.put("tableData",collectionDataSource);
+
+
             JasperReport jasperReport= JasperCompileManager.compileReport(file.getPath());
 
             JRBaseTextField textField=(JRBaseTextField) jasperReport.getTitle().getElementByKey("emp_of_year");
             textField.setForecolor(Color.green);
 
-            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,collectionDataSource);
+            JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,new JREmptyDataSource());
 
             String exportFilePath="E:\\first_report.pdf";
             JasperExportManager.exportReportToPdfFile(jasperPrint,exportFilePath);
