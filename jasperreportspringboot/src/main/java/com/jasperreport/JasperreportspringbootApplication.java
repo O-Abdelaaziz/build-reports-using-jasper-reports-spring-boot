@@ -79,7 +79,9 @@ public class JasperreportspringbootApplication {
             JasperPrint jasperPrint= JasperFillManager.fillReport(jasperReport,parameters,chartDataSource);
 
             String exportFilePath="E:\\first_report.pdf";
+            String exportFileHtml="E:\\first_report.html";
             JasperExportManager.exportReportToPdfFile(jasperPrint,exportFilePath);
+            JasperExportManager.exportReportToHtmlFile(jasperPrint,exportFileHtml);
 
             System.out.println("report printed");
         }catch (Exception ex){
